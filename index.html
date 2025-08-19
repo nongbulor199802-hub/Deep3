@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XAUUSD Realtime Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lightweight-charts@3.8.0/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>XAUUSD Realtime Analyzer</h1>
+            <div class="controls">
+                <input type="text" id="apiKey" placeholder="Finnhub API Key" spellcheck="false">
+                <input type="text" id="symbol" value="OANDA:XAU_USD" spellcheck="false">
+                <button id="connectBtn">Connect</button>
+                <span id="status">Disconnected</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="chart-container">
+                <div id="chart"></div>
+                <div class="metrics-panel">
+                    <div class="metric">
+                        <span class="label">Price:</span>
+                        <span id="lastPrice" class="value">-</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">RSI(14):</span>
+                        <span id="rsiValue" class="value">-</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">MACD:</span>
+                        <span id="macdValue" class="value">-</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">ATR(14):</span>
+                        <span id="atrValue" class="value">-</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">WS Status:</span>
+                        <span id="wsStatus" class="value">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="section">
+                    <h2>Quarterly Levels</h2>
+                    <div id="quarterlyLevels" class="levels-container"></div>
+                </div>
+                <div class="section">
+                    <h2>ICT Zones</h2>
+                    <div id="ictZones" class="zones-container"></div>
+                </div>
+                <div class="section">
+                    <h2>Recommendations</h2>
+                    <div id="recommendations" class="recommendations-container"></div>
+                </div>
+                <button id="exportBtn" class="export-btn">Export Snapshot JSON</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

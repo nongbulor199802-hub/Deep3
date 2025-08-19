@@ -1,0 +1,249 @@
+:root {
+    --bg-color: #1e1e2e;
+    --panel-bg: #2a2a3a;
+    --text-color: #e0e0e0;
+    --accent-color: #4a90e2;
+    --positive-color: #4caf50;
+    --negative-color: #f44336;
+    --neutral-color: #ff9800;
+    --border-color: #3a3a4a;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+header {
+    background-color: var(--panel-bg);
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.controls {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.controls input {
+    padding: 0.5rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: 4px;
+    min-width: 200px;
+}
+
+.controls button {
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.controls button:hover {
+    background-color: #3a7bc8;
+}
+
+.controls #status {
+    padding: 0.5rem;
+    color: var(--negative-color);
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.chart-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+#chart {
+    height: 600px;
+    width: 100%;
+    background-color: var(--panel-bg);
+    border-radius: 4px;
+}
+
+.metrics-panel {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem;
+    background-color: var(--panel-bg);
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.metric {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.metric .label {
+    font-weight: bold;
+}
+
+.metric .value {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.sidebar {
+    width: 300px;
+    padding: 1rem;
+    background-color: var(--panel-bg);
+    border-left: 1px solid var(--border-color);
+    overflow-y: auto;
+}
+
+.section {
+    margin-bottom: 1.5rem;
+}
+
+.section h2 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.3rem;
+}
+
+.levels-container, .zones-container, .recommendations-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.level-item, .zone-item, .recommendation-item {
+    padding: 0.5rem;
+    background-color: var(--bg-color);
+    border-radius: 4px;
+    border-left: 3px solid var(--accent-color);
+}
+
+.zone-item {
+    border-left-color: var(--neutral-color);
+}
+
+.recommendation-item {
+    border-left-color: var(--positive-color);
+}
+
+.recommendation-item.sell {
+    border-left-color: var(--negative-color);
+}
+
+.level-value {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.zone-type {
+    display: inline-block;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.zone-type.fvg-up {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: var(--positive-color);
+}
+
+.zone-type.fvg-down {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: var(--negative-color);
+}
+
+.zone-type.ob-bull {
+    background-color: rgba(76, 175, 80, 0.3);
+    color: var(--positive-color);
+}
+
+.zone-type.ob-bear {
+    background-color: rgba(244, 67, 54, 0.3);
+    color: var(--negative-color);
+}
+
+.confidence-meter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.3rem;
+}
+
+.confidence-bar {
+    flex: 1;
+    height: 6px;
+    background-color: var(--bg-color);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.confidence-progress {
+    height: 100%;
+    background-color: var(--positive-color);
+    width: 0%;
+}
+
+.export-btn {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: var(--neutral-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.2s;
+}
+
+.export-btn:hover {
+    background-color: #e68a00;
+}
+
+@media (max-width: 1200px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+    }
+}
